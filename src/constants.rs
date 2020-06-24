@@ -9,7 +9,7 @@ use std::ptr;
 pub type ConstantType = u64;
  
 #[cfg(all(target_pointer_width = "32", target_env = "musl"))]
-pub type ConstantType = i32;
+pub type ConstantType = u64;
  
 #[cfg(all(target_pointer_width = "32", not(target_env = "musl")))]
 pub type ConstantType = u32;
