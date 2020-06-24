@@ -9,7 +9,7 @@ use std::ptr;
 pub type ConstantType = u64;
  
 #[cfg(all(target_pointer_width = "32", target_env = "musl"))]
-pub type ConstantType = u64;
+pub type ConstantType = i32;
  
 #[cfg(all(target_pointer_width = "32", not(target_env = "musl")))]
 pub type ConstantType = u32;
@@ -18,11 +18,6 @@ pub type ConstantType = u32;
 #[repr(C)]
 struct Constant {
     name: *const c_char,
-
-    #[cfg(all(target_pointer_width = "32", target_env = "musl"))]
-    value: i32,
-
-    #[cfg(all(target_pointer_width = "32", not(target_env = "musl")))]
     value: u64,
 }
 
