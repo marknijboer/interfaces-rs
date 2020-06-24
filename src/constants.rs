@@ -6,10 +6,10 @@ use std::os::raw::c_char;
 use std::ptr;
 
 #[cfg(not(target_pointer_width = "32"))]
-pub type ConstantType = u64;
+pub type ConstantType = i32;
  
 #[cfg(all(target_pointer_width = "32", target_env = "musl"))]
-pub type ConstantType = u64;
+pub type ConstantType = i32;
  
 #[cfg(all(target_pointer_width = "32", not(target_env = "musl")))]
 pub type ConstantType = u32;
